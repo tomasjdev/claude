@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horizonte Inmobiliaria | Encuentra la casa de tus sueños</title>
+<meta name="description" content="Horizonte Inmobiliaria: compra, venta y renta de casas y departamentos con el respaldo de un equipo experto. Descubre propiedades exclusivas hoy mismo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="logo">Horizonte<span>Inmobiliaria</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="propiedades.html">Propiedades</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li class="nav-cta-mobile"><a href="contacto.html" class="btn btn-primary btn-sm btn-block">Agenda una cita</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="nav-phone" href="tel:+525512345678">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +52 55 1234 5678
+      </a>
+      <a href="contacto.html" class="btn btn-primary btn-sm">Agenda una cita</a>
+      <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow" style="color:#e3c98f;">Agencia inmobiliaria de confianza</span>
+      <h1>Encuentra la <em>casa perfecta</em> para tu próximo capítulo</h1>
+      <p>Más de 12 años ayudando a familias e inversionistas a comprar, vender y rentar propiedades con seguridad, transparencia y acompañamiento personalizado.</p>
+      <div class="hero-cta">
+        <a href="propiedades.html" class="btn btn-primary">Explorar propiedades</a>
+        <a href="contacto.html" class="btn btn-outline">Hablar con un asesor</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>1,200+</strong><span>Propiedades vendidas</span></div>
+        <div><strong>980+</strong><span>Clientes satisfechos</span></div>
+        <div><strong>12</strong><span>Años de experiencia</span></div>
+        <div><strong>24</strong><span>Asesores certificados</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <form class="search-box" id="hero-search">
+    <div class="field">
+      <label for="s-type">Operación</label>
+      <select id="s-type">
+        <option value="">Todas</option>
+        <option value="venta">Venta</option>
+        <option value="renta">Renta</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="s-category">Tipo de propiedad</label>
+      <select id="s-category">
+        <option value="">Todos</option>
+        <option>Casa</option>
+        <option>Departamento</option>
+        <option>Casa de campo</option>
+        <option>Loft</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="s-location">Ubicación</label>
+      <input type="text" id="s-location" placeholder="Ciudad, colonia o zona">
+    </div>
+    <div class="field">
+      <label for="s-price">Precio máximo</label>
+      <input type="number" id="s-price" placeholder="Sin límite">
+    </div>
+    <button type="submit" class="btn btn-dark">Buscar</button>
+  </form>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Selección destacada</span>
+      <h2>Propiedades destacadas</h2>
+      <p>Una selección curada de las mejores oportunidades disponibles esta semana en las zonas más solicitadas.</p>
+    </div>
+    <div class="property-grid" id="featured-properties"></div>
+    <div class="text-center mt-40">
+      <a href="propiedades.html" class="btn btn-dark">Ver todas las propiedades</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Por qué elegirnos</span>
+      <h2>Un servicio pensado para tu tranquilidad</h2>
+      <p>Combinamos experiencia, tecnología y atención personalizada para que cada transacción sea simple y segura.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4.5v5c0 5-3.8 9.4-9 10.5-5.2-1.1-9-5.5-9-10.5v-5L12 2z"/></svg>
+        </div>
+        <h3>Transacciones seguras</h3>
+        <p>Verificación legal completa y acompañamiento notarial en cada operación de compra o venta.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <h3>Búsqueda a tu medida</h3>
+        <p>Filtramos cientos de opciones para mostrarte solo las propiedades que realmente encajan contigo.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+        </div>
+        <h3>Asesoría financiera</h3>
+        <p>Te ayudamos a comparar créditos hipotecarios y encontrar el plan de pago ideal.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Equipo experto</h3>
+        <p>Asesores certificados con conocimiento profundo del mercado local en cada zona.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" style="color:#e3c98f;">Nuestro proceso</span>
+      <h2>Comprar o vender nunca fue tan sencillo</h2>
+      <p>Un proceso claro en cuatro pasos, diseñado para que tomes decisiones informadas en cada momento.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3>Cuéntanos qué buscas</h3>
+        <p>Agenda una llamada o visita para definir tus necesidades, presupuesto y zona ideal.</p>
+      </div>
+      <div class="step">
+        <h3>Exploramos opciones</h3>
+        <p>Te presentamos propiedades seleccionadas y coordinamos visitas presenciales o virtuales.</p>
+      </div>
+      <div class="step">
+        <h3>Negociamos por ti</h3>
+        <p>Nuestro equipo gestiona la oferta, la documentación y los trámites legales necesarios.</p>
+      </div>
+      <div class="step">
+        <h3>Firma y entrega</h3>
+        <p>Formalizamos la operación y te acompañamos hasta la entrega de llaves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Testimonios</span>
+      <h2>Lo que dicen nuestros clientes</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"El equipo de Horizonte nos acompañó en todo el proceso de compra de nuestra primera casa. Su asesoría fue clave para tomar la mejor decisión."</p>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Retrato de Marina López">
+          <div><strong>Marina López</strong><span>Compradora, Las Lomas</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Vendimos nuestro departamento en menos de tres semanas y a un precio superior al que esperábamos. Muy profesionales."</p>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Retrato de Daniel Reyes">
+          <div><strong>Daniel Reyes</strong><span>Vendedor, Torre Central</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Como inversionista extranjero necesitaba confianza total. Horizonte me dio seguridad legal y resultados concretos."</p>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Retrato de Carlos Medina">
+          <div><strong>Carlos Medina</strong><span>Inversionista</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <h2>¿Listo para dar el siguiente paso?</h2>
+        <p>Agenda una consulta gratuita con uno de nuestros asesores y comienza tu búsqueda hoy mismo.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="contacto.html" class="btn btn-primary">Agenda tu consulta</a>
+        <a href="propiedades.html" class="btn btn-outline">Ver propiedades</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="footer"></footer>
+
+<script src="js/properties.js"></script>
+<script src="js/main.js"></script>
+<script src="js/footer.js"></script>
+<script>
+  renderProperties(document.getElementById("featured-properties"), PROPERTIES.filter(p => p.featured));
+
+  document.getElementById("hero-search").addEventListener("submit", e => {
+    e.preventDefault();
+    const params = new URLSearchParams();
+    const type = document.getElementById("s-type").value;
+    const category = document.getElementById("s-category").value;
+    const location = document.getElementById("s-location").value.trim();
+    const price = document.getElementById("s-price").value;
+    if (type) params.set("type", type);
+    if (category) params.set("category", category);
+    if (location) params.set("location", location);
+    if (price) params.set("maxPrice", price);
+    window.location.href = "propiedades.html" + (params.toString() ? "?" + params.toString() : "");
+  });
+</script>
+</body>
+</html>

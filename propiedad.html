@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Detalle de propiedad | Horizonte Inmobiliaria</title>
+<meta name="description" content="Consulta todos los detalles, fotografías y características de esta propiedad. Agenda una visita con nuestro equipo de asesores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="logo">Horizonte<span>Inmobiliaria</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="propiedades.html">Propiedades</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li class="nav-cta-mobile"><a href="contacto.html" class="btn btn-primary btn-sm btn-block">Agenda una cita</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="nav-phone" href="tel:+525512345678">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +52 55 1234 5678
+      </a>
+      <a href="contacto.html" class="btn btn-primary btn-sm">Agenda una cita</a>
+      <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<section class="page-banner" style="padding:100px 0 40px;">
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html">Inicio</a> / <a href="propiedades.html">Propiedades</a> / <span id="crumb-title"></span></p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:40px;">
+  <div class="container" id="property-detail">
+    <!-- Contenido inyectado por JS -->
+  </div>
+</section>
+
+<footer class="site-footer" id="footer"></footer>
+
+<script src="js/properties.js"></script>
+<script src="js/main.js"></script>
+<script src="js/footer.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const property = getProperty(params.get("id")) || PROPERTIES[0];
+  const root = document.getElementById("property-detail");
+
+  document.getElementById("page-title").textContent = `${property.title} | Horizonte Inmobiliaria`;
+  document.getElementById("crumb-title").textContent = property.title;
+
+  const amenities = [
+    "Cocina equipada", "Estacionamiento techado", "Seguridad 24/7",
+    "Jardín / terraza", "Aire acondicionado", "Closets amplios",
+    "Área de lavado", "Internet de fibra óptica"
+  ];
+
+  root.innerHTML = `
+    <div class="detail-gallery">
+      <div class="detail-gallery-main"><img src="${property.gallery[0]}" alt="${property.title}"></div>
+      <div class="gallery-side">
+        <img src="${property.gallery[1] || property.gallery[0]}" alt="${property.title} - vista 2">
+        <img src="${property.gallery[2] || property.gallery[0]}" alt="${property.title} - vista 3">
+      </div>
+    </div>
+
+    <div class="detail-layout">
+      <div>
+        <div class="detail-header">
+          <div>
+            <span class="property-tag ${property.type}" style="position:static; display:inline-block; margin-bottom:10px;">${property.type === "renta" ? "En renta" : "En venta"}</span>
+            <h1>${property.title}</h1>
+            <div class="property-location">${ICONS.pin} ${property.location}</div>
+          </div>
+          <div class="detail-price">${formatPrice(property)}</div>
+        </div>
+
+        <div class="spec-grid">
+          <div class="spec-item">${ICONS.bed}<strong>${property.bedrooms}</strong><span>Recámaras</span></div>
+          <div class="spec-item">${ICONS.bath}<strong>${property.bathrooms}</strong><span>Baños</span></div>
+          <div class="spec-item"><strong>${property.area} m²</strong><span>Superficie</span></div>
+          <div class="spec-item"><strong>${property.garage}</strong><span>Estacionamientos</span></div>
+        </div>
+
+        <div class="detail-section">
+          <h2>Descripción</h2>
+          <p>${property.description}</p>
+        </div>
+
+        <div class="detail-section">
+          <h2>Amenidades</h2>
+          <ul class="amenity-list">
+            ${amenities.map(a => `<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> ${a}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="detail-section">
+          <h2>Ubicación</h2>
+          <div class="map-frame" style="margin-top:0;">
+            <iframe title="Mapa de ubicación" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-99.20%2C19.40%2C-99.10%2C19.45&layer=mapnik"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <aside class="agent-card">
+        <div class="agent-profile">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Asesora Valeria Sánchez">
+          <div>
+            <strong>Valeria Sánchez</strong>
+            <span>Asesora certificada</span>
+          </div>
+        </div>
+        <p style="font-size:0.88rem; color:var(--color-text-muted);">¿Interesado en esta propiedad? Envía tus datos y te contactaremos en menos de 24 horas.</p>
+        <form id="agent-form">
+          <input type="text" placeholder="Nombre completo" required>
+          <input type="email" placeholder="Correo electrónico" required>
+          <input type="tel" placeholder="Teléfono">
+          <textarea rows="3" placeholder="Me interesa esta propiedad, quisiera más información...">Hola, me interesa la propiedad "${property.title}". Quisiera agendar una visita.</textarea>
+          <button type="submit" class="btn btn-primary btn-block">Solicitar información</button>
+        </form>
+        <div class="agent-contact-row">
+          <a href="tel:+525512345678">Llamar</a>
+          <a href="mailto:contacto@horizonteinmobiliaria.com">Email</a>
+        </div>
+      </aside>
+    </div>
+  `;
+
+  document.getElementById("agent-form").addEventListener("submit", e => {
+    e.preventDefault();
+    const btn = e.target.querySelector("button");
+    btn.textContent = "¡Solicitud enviada!";
+    btn.disabled = true;
+  });
+</script>
+</body>
+</html>
